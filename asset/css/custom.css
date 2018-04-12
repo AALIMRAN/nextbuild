@@ -1,0 +1,142 @@
+/* ----------------------------------------------------
+	ADD CUSTOM STYLES HERE...
+------------------------------------------------------- */
+
+	.footer a:hover,
+	.copyright a:hover,
+	.twitter-widget a {
+		color:#FFA000 !important;
+	}
+	.sidebar-nav li:hover a,
+	.rating i,
+	span.clients-name,
+	.latest-tweets a,
+	.block-text a small,
+ 	.breadcrumb > .active,
+	.check li:before,
+	.latest-tweets p:before,
+	.shop-item small,
+	.shop-desc small,
+	.category_title,
+	.portfolio-filter ul li i,
+	.team-member h4 span,
+	.readmore,
+	.slider_layer_01 i,
+	.topbar.dark .social a:hover,
+	#quote-carousel blockquote small,
+	.magnifier .st:hover {
+		color:#FFA000;
+	}
+	.navbar-default .dropdown-menu li:focus,
+	.navbar-default .dropdown-menu li:hover a,
+	.pink {
+		background-color: #FFA000;
+	}
+	.tabs-left .nav-tabs li.active a span,
+	.tabs-left .nav-tabs li:hover a span,
+	.magnifier .st,
+	.social a,
+	.pager a,
+	.ui-state-default, .ui-widget-content .ui-state-default, .ui-widget-header .ui-state-default,
+	.tagcloud a:hover,
+	p.drop-caps.full:first-child:first-letter,
+	.dropdown-menu > li:hover > a,
+	.btn-primary:hover,
+	.form-header,
+	.btn-primary:focus,
+	.btn-primary.focus,
+	.btn-primary:active,
+	.services-1 i,
+	.pitem .st,
+	.btn-primary.active,
+	.open > .dropdown-toggle.btn-primary,
+	.magnifier .st:hover,
+	.slider_btn .btn-primary {
+		border-color: #FFA000 !important;
+		background-color: #FFA000 !important;
+		color:#fff !important;
+	}
+	.tabs-left .nav-tabs li.active a,
+	.tabs-left .nav-tabs li:hover a,
+	.contact-details h1,
+	.why-us img,
+	.sticky-col .big-meta,
+	.slider_btn .btn-primary,
+	.tp-caption.slider_layer_01,
+	.slider_layer_01,
+	.topbar,
+	.pagination a,
+	.navbar-default .navbar-nav .open .dropdown-menu > li > a,
+	.navbar-default .navbar-nav > .open > a,
+	.navbar-default .navbar-nav > .open > a:hover,
+	.navbar-default .navbar-nav > .open > a:focus,
+	mark,
+	.grid figcaption,
+	.blogging:hover,
+	.btn-primary,
+	.progress-bar,
+	.owl-theme .owl-controls .owl-nav [class*=owl-],
+	.navbar-default .navbar-nav > li:hover > a,
+	.navbar-default .navbar-nav > li:focus > a,
+	.navbar-default .nav > li > a:hover,
+	.navbar-default .nav > li > a:focus,
+	.navbar-default .nav > li > a.active,
+	.navbar-default .dropdown-menu,
+	.dark-yellow {
+		color:#ffffff !important;
+		background-color: #FFC107 !important;
+	}
+	.yamm .dropdown.yamm-fw .dropdown-menu,
+	.nav-tabs > li a:hover,
+	.nav-tabs > li.active > a,
+	.nav-tabs > li.active > a:hover,
+	.nav-tabs > li.active > a:focus,
+	.nav-tabs > li.active > a:hover,
+	.nav-tabs > li.active > a:focus {
+		border-top-color: #FFC107;
+	}
+	.widget-title hr,
+	blockquote,
+	.content-widget .widget-title hr,
+	#sidebar .widget-title hr,
+	.form-control:focus:not([readonly]),
+	.general-title hr {
+		border-color: #FFC107;
+	}
+	.panel-default > .panel-heading + .panel-collapse > .panel-body,
+	.bgcolor,
+	.border-top,
+	.workinghours,
+	.nav-tabs > li.active > a,
+	.nav-tabs > li.active > a:hover,
+	.nav-tabs > li.active > a:focus {
+		border-top-color: #FFC107 !important;
+	}
+	::selection {
+		background: #FFC107; /* Safari */
+		color:#fff;
+	}
+	::-moz-selection {
+		background: #FFC107; /* Firefox */
+		color:#fff;
+	}
+	.sticky-col .big-meta,
+	.customoverlay {
+		background-color: rgba(106,180,47,0.7)
+	}
+	.lighttopbar {
+		background-color: #5d3a39 !important;
+	}
+	.white {
+		background-color: #ffffff;
+	}
+	.ui-widget-header,
+	.dark-yellow .services-1 i,
+	.dark {
+		color:#ffffff !important;
+		border-color: #222222 !important;
+		background-color: #222222 !important;
+	}
+	.bgcolor1:hover {
+		background-color: #FFA000;
+	}
