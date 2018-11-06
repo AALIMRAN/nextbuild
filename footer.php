@@ -36,7 +36,6 @@
 			</div><!-- end row -->
 		</div><!-- end container -->
 	</section>
-	From now this theme available for free use. 
 </div><!-- #page -->
 <?php wp_footer(); ?>
 </body>
