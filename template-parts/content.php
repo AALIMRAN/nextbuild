@@ -6,10 +6,11 @@
  *
  * @package nextbuild
  */
-
+$postcount = wp_count_posts()->publish;
+$postcount = ($postcount == 1 ? '0' : '');
 ?>
-<div id="post-<?php the_ID();?>" <?php post_class("col-md-6 single-blog col-sm-6"); ?>>
-    <div class="blog-wrapper">
+<div id="post-<?php the_ID();?>" <?php post_class("col-md-6 single-blog col-sm-6"); ?> style="margin-bottom:<?php echo esc_attr($postcount); ?>">
+    <div class="blog-wrapper" style="margin-bottom:<?php echo esc_attr($postcount); ?>"">
         <?php if (has_post_thumbnail()): ?>
         <div class="blog-image">
             <?php
@@ -19,6 +20,7 @@
         <?php else: ?>
         <div class="blog-image">
             <?php
+            $postcount = wp_count_posts();
                echo nextbuild_image_attachment();
             ?>
         </div>
@@ -26,9 +28,11 @@
         <!-- end image -->
         <div class="blog-title">
             <?php $categories = get_the_terms($post->ID, 'category');
-            foreach ($categories as $category) { ?>
+            if ($categories != false) :
+                foreach ($categories as $category) :?>
                     <a class="category_title" href="<?php echo esc_url(get_category_link($category->term_id)); ?>" title=""><?php echo esc_html($category->name); ?></a>
-            <?php } ?>
+            <?php endforeach;
+                endif;?>
             <?php the_title('<h2><a href="'.esc_attr(get_permalink()).'">', '</a></h2>');?>
             <div class="post-meta">
                 <span>
@@ -36,11 +40,13 @@
                     <?php nextbuild_posted_by(); ?>
                 </span>
                 <span>
-                    <i class="fa fa-tag"></i>
                     <?php
-                    foreach ($categories as $category) { ?>
-                    <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>" title=""><?php echo esc_html($category->name); ?></a>
-                    <?php } ?>
+                    if ($categories != false) :
+                        foreach ($categories as $category) : ?>
+                         <i class="fa fa-tag"></i>
+                        <a href="<?php echo esc_url(get_category_link($category->term_id)); ?>" title=""><?php echo esc_html($category->name); ?></a>
+                    <?php endforeach;
+                    endif;?>
                 </span>
                 <span>
                     <i class="fa fa-comments"></i>

@@ -4547,11 +4547,12 @@ select.postform {
     padding-left: 10px;
     padding-right: 10px;
 }
-
 .widget_nav_menu ul ul {
     padding-left: 10px !important;
 }
-
+footer.comment-meta.media .media-left.comment-author img {
+    height: auto;
+}
 .textwidget img {
     max-width: 100%;
     width: auto;
@@ -4560,7 +4561,10 @@ select.postform {
 .widget_pages ul ul {
     margin-left: 10px;
 }
-
+.entry-content footer.entry-footer {
+    margin-top: 20px;
+    text-align: center;
+}
 .footer .tagcloud a {
     background-color: #FFA000;
     color: #fff !important;
@@ -4627,3 +4631,14 @@ select.postform {
 .blogshortcode .blog-title{
     padding: 30px !important;
 }
+
+
+
+
+/*Start Slider css*/
+
+section.section.white.no-padding {
+    padding: 0;
+}
+
+/*end of slider css*/

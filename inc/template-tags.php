@@ -74,8 +74,7 @@ if (! function_exists('nextbuild_post_thumbnail')) :
                 'alt' => the_title_attribute(array(
                     'echo' => false,
                 )),
-            ));
-            ?>
+            )); ?>
         </a>
 
         <?php

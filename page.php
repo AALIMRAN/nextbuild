@@ -16,11 +16,12 @@ get_header();
 ?>
 
 <?php
- nextbuild_page_header();
+
+nextbuild_page_header();
 ?>
-    <div id="primary" class="content-area">
-        <main class="site-main singlepage">
-        <?php nextbuild_page_layout(); ?>
-        </main><!-- #main -->
-    </div><!-- #primary -->
-<?php get_footer();?>
+	<div id="primary" class="content-area">
+		<main class="site-main singlepage">
+		<?php nextbuild_page_layout(); ?>
+		</main><!-- #main -->
+	</div><!-- #primary -->
+<?php get_footer(); ?>

@@ -63,7 +63,7 @@ function nextbuild_register_required_plugins() {
 		array(
 			'name'               => 'NextBuild Core', // The plugin name.
 			'slug'               => 'nextbuild-core', // The plugin slug (typically the folder name).
-			'source'             => get_template_directory() . '/lib/plugins/tgm-example-plugin.zip', // The plugin source.
+			'source'             => get_template_directory_uri() . '/inc/plugins/nextbuild-core.zip', // The plugin source.
 			'required'           => true, // If false, the plugin is only 'recommended' instead of required.
 			'version'            => '', // E.g. 1.0.0. If set, the active plugin must be this version or higher. If the plugin version is higher than the plugin version installed, the user will be notified to update the plugin.
 			'force_activation'   => false, // If true, plugin is activated upon theme activation and cannot be deactivated until theme switch.
@@ -72,27 +72,30 @@ function nextbuild_register_required_plugins() {
 			'is_callable'        => '', // If set, this callable will be be checked for availability to determine if a plugin is active.
 		),
 
-		// This is an example of how to include a plugin from an arbitrary external source in your theme.
+		// Redux FrameWork.
 		array(
-			'name'         => 'Redux Framework', // The plugin name.
-			'slug'         => 'redux-framework', // The plugin slug (typically the 
-			'required'     => true, // If false, the plugin is only 'recommended' 
+			'name'     => 'Redux Framework', // The plugin name.
+			'slug'     => 'redux-framework', // The plugin slug (typically the.
+			'required' => true, // If false, the plugin is only 'recommended'.
+		),
+		// KingComposer
+		array(
+			'name'     => 'King Composer', // The plugin name.
+			'slug'     => 'kingcomposer', // The plugin slug (typically the.
+			'required' => true, // If false, the plugin is only 'recommended'.
 		),
 
 		// This is an example of how to include a plugin from a GitHub repository in your theme.
 		// This presumes that the plugin code is based in the root of the GitHub repository
 		// and not in a subdirectory ('/src') of the repository.
 		array(
-			'name'      => 'Breadcrumb NavXT',
-			'slug'      => 'breadcrumb-navxt',
+			'name' => 'Breadcrumb NavXT',
+			'slug' => 'breadcrumb-navxt',
 		),
 		array(
-			'name'      => 'AddToAny Share Buttons',
-			'slug'      => 'add-to-any',
+			'name' => 'AddToAny Share Buttons',
+			'slug' => 'add-to-any',
 		),
-
-
-
 	);
 
 	/*
@@ -113,8 +116,6 @@ function nextbuild_register_required_plugins() {
 		'dismiss_msg'  => '',                      // If 'dismissable' is false, this message will be output at top of nag.
 		'is_automatic' => false,                   // Automatically activate plugins after installation or not.
 		'message'      => '',                      // Message to output right before the plugins table.
-
-		
 	);
 
 	tgmpa( $plugins, $config );

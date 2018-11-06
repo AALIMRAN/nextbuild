@@ -4,7 +4,7 @@
      * For full documentation, please visit: http://docs.reduxframework.com/
      */
 
-    if ( ! class_exists( 'Redux' ) ) {
+    if (! class_exists('Redux')) {
         return;
     }
 
@@ -13,7 +13,7 @@
     $opt_name = "nextbuild_options";
 
     // This line is only for altering the demo. Can be easily removed.
-    $opt_name = apply_filters( 'redux_demo/opt_name', $opt_name );
+    $opt_name = apply_filters('redux_demo/opt_name', $opt_name);
 
     /*
      *
@@ -22,29 +22,27 @@
      */
 
     $sampleHTML = '';
-    if ( file_exists( dirname( __FILE__ ) . '/info-html.html' ) ) {
+    if (file_exists(dirname(__FILE__) . '/info-html.html')) {
         Redux_Functions::initWpFilesystem();
 
         global $wp_filesystem;
 
-        $sampleHTML = $wp_filesystem->get_contents( dirname( __FILE__ ) . '/info-html.html' );
+        $sampleHTML = $wp_filesystem->get_contents(dirname(__FILE__) . '/info-html.html');
     }
 
     // Background Patterns Reader
     $sample_patterns_path = ReduxFramework::$_dir . '../sample/patterns/';
     $sample_patterns_url  = ReduxFramework::$_url . '../sample/patterns/';
     $sample_patterns      = array();
-    
-    if ( is_dir( $sample_patterns_path ) ) {
 
-        if ( $sample_patterns_dir = opendir( $sample_patterns_path ) ) {
+    if (is_dir($sample_patterns_path)) {
+        if ($sample_patterns_dir = opendir($sample_patterns_path)) {
             $sample_patterns = array();
 
-            while ( ( $sample_patterns_file = readdir( $sample_patterns_dir ) ) !== false ) {
-
-                if ( stristr( $sample_patterns_file, '.png' ) !== false || stristr( $sample_patterns_file, '.jpg' ) !== false ) {
-                    $name              = explode( '.', $sample_patterns_file );
-                    $name              = str_replace( '.' . end( $name ), '', $sample_patterns_file );
+            while (($sample_patterns_file = readdir($sample_patterns_dir)) !== false) {
+                if (stristr($sample_patterns_file, '.png') !== false || stristr($sample_patterns_file, '.jpg') !== false) {
+                    $name              = explode('.', $sample_patterns_file);
+                    $name              = str_replace('.' . end($name), '', $sample_patterns_file);
                     $sample_patterns[] = array(
                         'alt' => $name,
                         'img' => $sample_patterns_url . $sample_patterns_file
@@ -66,16 +64,16 @@
         // TYPICAL -> Change these values as you need/desire
         'opt_name'             => $opt_name,
         // This is where your data is stored in the database and also becomes your global variable name.
-        'display_name'         => $theme->get( 'Name' ),
+        'display_name'         => $theme->get('Name'),
         // Name that appears at the top of your panel
-        'display_version'      => $theme->get( 'Version' ),
+        'display_version'      => $theme->get('Version'),
         // Version that appears at the top of your panel
         'menu_type'            => 'menu',
         //Specify if the admin menu should appear or not. Options: menu or submenu (Under appearance only)
         'allow_sub_menu'       => true,
         // Show the sections below the admin menu item or not
-        'menu_title'           => __( 'Next Build Options', 'nextbuild' ),
-        'page_title'           => __( 'Next Build Options', 'nextbuild' ),
+        'menu_title'           => __('Next Build Options', 'nextbuild'),
+        'page_title'           => __('Next Build Options', 'nextbuild'),
         // You will need to generate a Google API key to use this feature.
         // Please visit: https://developers.google.com/fonts/docs/developer_api#Auth
         'google_api_key'       => '',
@@ -175,19 +173,19 @@
     $args['admin_bar_links'][] = array(
         'id'    => 'redux-docs',
         'href'  => 'http://docs.reduxframework.com/',
-        'title' => __( 'Documentation', 'nextbuild' ),
+        'title' => __('Documentation', 'nextbuild'),
     );
 
     $args['admin_bar_links'][] = array(
         //'id'    => 'redux-support',
         'href'  => 'https://github.com/ReduxFramework/redux-framework/issues',
-        'title' => __( 'Support', 'nextbuild' ),
+        'title' => __('Support', 'nextbuild'),
     );
 
     $args['admin_bar_links'][] = array(
         'id'    => 'redux-extensions',
         'href'  => 'reduxframework.com/extensions',
-        'title' => __( 'Extensions', 'nextbuild' ),
+        'title' => __('Extensions', 'nextbuild'),
     );
 
     // SOCIAL ICONS -> Setup custom links in the footer for quick links in your panel footer icons.
@@ -214,21 +212,21 @@
     );
 
     // Panel Intro text -> before the form
-    if ( ! isset( $args['global_variable'] ) || $args['global_variable'] !== false ) {
-        if ( ! empty( $args['global_variable'] ) ) {
+    if (! isset($args['global_variable']) || $args['global_variable'] !== false) {
+        if (! empty($args['global_variable'])) {
             $v = $args['global_variable'];
         } else {
-            $v = str_replace( '-', '_', $args['opt_name'] );
+            $v = str_replace('-', '_', $args['opt_name']);
         }
-        $args['intro_text'] = sprintf( __( '<p>Did you know that Redux sets a global variable for you? To access any of your saved options from within your code you can use your global variable: <strong>$%1$s</strong></p>', 'nextbuild' ), $v );
+        $args['intro_text'] = sprintf(__('<p>Did you know that Redux sets a global variable for you? To access any of your saved options from within your code you can use your global variable: <strong>$%1$s</strong></p>', 'nextbuild'), $v);
     } else {
-        $args['intro_text'] = __( '<p>This text is displayed above the options panel. It isn\'t required, but more info is always better! The intro_text field accepts all HTML.</p>', 'nextbuild' );
+        $args['intro_text'] = __('<p>This text is displayed above the options panel. It isn\'t required, but more info is always better! The intro_text field accepts all HTML.</p>', 'nextbuild');
     }
 
     // Add content after the form.
-    $args['footer_text'] = __( '<p>This text is displayed below the options panel. It isn\'t required, but more info is always better! The footer_text field accepts all HTML.</p>', 'nextbuild' );
+    $args['footer_text'] = __('<p>This text is displayed below the options panel. It isn\'t required, but more info is always better! The footer_text field accepts all HTML.</p>', 'nextbuild');
 
-    Redux::setArgs( $opt_name, $args );
+    Redux::setArgs($opt_name, $args);
 
     /*
      * ---> END ARGUMENTS
@@ -242,20 +240,20 @@
     $tabs = array(
         array(
             'id'      => 'redux-help-tab-1',
-            'title'   => __( 'Theme Information 1', 'nextbuild' ),
-            'content' => __( '<p>This is the tab content, HTML is allowed.</p>', 'nextbuild' )
+            'title'   => __('Theme Information 1', 'nextbuild'),
+            'content' => __('<p>This is the tab content, HTML is allowed.</p>', 'nextbuild')
         ),
         array(
             'id'      => 'redux-help-tab-2',
-            'title'   => __( 'Theme Information 2', 'nextbuild' ),
-            'content' => __( '<p>This is the tab content, HTML is allowed.</p>', 'nextbuild' )
+            'title'   => __('Theme Information 2', 'nextbuild'),
+            'content' => __('<p>This is the tab content, HTML is allowed.</p>', 'nextbuild')
         )
     );
-    Redux::setHelpTab( $opt_name, $tabs );
+    Redux::setHelpTab($opt_name, $tabs);
 
     // Set the help sidebar
-    $content = __( '<p>This is the sidebar content, HTML is allowed.</p>', 'nextbuild' );
-    Redux::setHelpSidebar( $opt_name, $content );
+    $content = __('<p>This is the sidebar content, HTML is allowed.</p>', 'nextbuild');
+    Redux::setHelpSidebar($opt_name, $content);
 
 
     /*
@@ -277,10 +275,10 @@
      */
 
     // -> START Basic Fields
-    Redux::setSection( $opt_name, array(
-        'title'            => __( 'Header Options', 'nextbuild' ),
+    Redux::setSection($opt_name, array(
+        'title'            => __('Header Options', 'nextbuild'),
         'id'               => 'header-options',
-        'desc'             => __( 'Here are all header options', 'nextbuild' ),
+        'desc'             => __('Here are all header options', 'nextbuild'),
         'customizer_width' => '400px',
         'icon'             => 'el el-home',
         'fields'           =>   array(
@@ -303,13 +301,13 @@
                 ),
             ),
         ),
-    ) );
+    ));
 
 
-    Redux::setSection( $opt_name, array(
-        'title'            => __( 'Footer Options', 'nextbuild' ),
+    Redux::setSection($opt_name, array(
+        'title'            => __('Footer Options', 'nextbuild'),
         'id'               => 'footer-options',
-        'desc'             => __( 'Here are all header options', 'nextbuild' ),
+        'desc'             => __('Here are all header options', 'nextbuild'),
         'customizer_width' => '400px',
         'icon'             => 'el el-home',
         'fields'           =>   array(
@@ -318,19 +316,19 @@
                 'id'    =>  'copyrighttext',
                 'type'  =>  'editor',
                 'desc'  =>  esc_html__('Type Your Website Copyright Text', 'nextbuild'),
-                'default'   =>  '<p>2017 - 2018 Next Build Pty Ltd. by <a href="'.esc_url(home_url('/')).'" title="Next Theme">Next Theme</a></p>'
+                'default'   =>  '<p>2017 - 2018 Next Build Pty Ltd. by <a href=" ' .esc_url(home_url('/')) . ' " title="Next Theme">Next Theme</a></p>'
             ),
         ),
-    ) );
+    ));
 
 
 
     // -> START Required
-    Redux::setSection( $opt_name, array(
-        'title'      => __( 'Field Required / Linking', 'nextbuild' ),
+    Redux::setSection($opt_name, array(
+        'title'      => __('Field Required / Linking', 'nextbuild'),
         'id'         => 'required',
-        'desc'       => __( 'For full documentation on validation, visit: ', 'nextbuild' ) . '<a href="//docs.reduxframework.com/core/the-basics/required/" target="_blank">docs.reduxframework.com/core/the-basics/required/</a>',
-        
+        'desc'       => __('For full documentation on validation, visit: ', 'nextbuild') . '<a href="//docs.reduxframework.com/core/the-basics/required/" target="_blank">docs.reduxframework.com/core/the-basics/required/</a>',
+
         'fields'     => array(
             array(
                 'id'       => 'opt-required-basic',
@@ -430,25 +428,25 @@
                 'required' => array( 'opt-required-select', '=', array( 'right-sidebar', 'both-sidebars' ) )
             ),
         )
-    ) );
+    ));
 
-    Redux::setSection( $opt_name, array(
-        'title'      => __( 'WPML Integration', 'nextbuild' ),
-        'desc'       => __( 'These fields can be fully translated by WPML (WordPress Multi-Language). This serves as an example for you to implement. For extra details look at our <a href="//docs.reduxframework.com/core/advanced/wpml-integration/" target="_blank">WPML Implementation</a> documentation.', 'nextbuild' ),
-        
+    Redux::setSection($opt_name, array(
+        'title'      => __('WPML Integration', 'nextbuild'),
+        'desc'       => __('These fields can be fully translated by WPML (WordPress Multi-Language). This serves as an example for you to implement. For extra details look at our <a href="//docs.reduxframework.com/core/advanced/wpml-integration/" target="_blank">WPML Implementation</a> documentation.', 'nextbuild'),
+
         // 'submenu' => false, // Setting submenu to false on a given section will hide it from the WordPress sidebar menu!
         'fields'     => array(
             array(
                 'id'    => 'wpml-text',
                 'type'  => 'textarea',
-                'title' => __( 'WPML Text', 'nextbuild' ),
-                'desc'  => __( 'This string can be translated via WPML.', 'nextbuild' ),
+                'title' => __('WPML Text', 'nextbuild'),
+                'desc'  => __('This string can be translated via WPML.', 'nextbuild'),
             ),
             array(
                 'id'      => 'wpml-multicheck',
                 'type'    => 'checkbox',
-                'title'   => __( 'WPML Multi Checkbox', 'nextbuild' ),
-                'desc'    => __( 'You can literally translate the values via key.', 'nextbuild' ),
+                'title'   => __('WPML Multi Checkbox', 'nextbuild'),
+                'desc'    => __('You can literally translate the values via key.', 'nextbuild'),
                 //Must provide key => value pairs for multi checkbox options
                 'options' => array(
                     '1' => 'Option 1',
@@ -457,20 +455,20 @@
                 ),
             ),
         )
-    ) );
+    ));
 
-    Redux::setSection( $opt_name, array(
+    Redux::setSection($opt_name, array(
         'icon'            => 'el el-list-alt',
-        'title'           => __( 'Customizer Only', 'nextbuild' ),
-        'desc'            => __( '<p class="description">This Section should be visible only in Customizer</p>', 'nextbuild' ),
+        'title'           => __('Customizer Only', 'nextbuild'),
+        'desc'            => __('<p class="description">This Section should be visible only in Customizer</p>', 'nextbuild'),
         'customizer_only' => true,
         'fields'          => array(
             array(
                 'id'              => 'opt-customizer-only',
                 'type'            => 'select',
-                'title'           => __( 'Customizer Only Option', 'nextbuild' ),
-                'subtitle'        => __( 'The subtitle is NOT visible in customizer', 'nextbuild' ),
-                'desc'            => __( 'The field desc is NOT visible in customizer.', 'nextbuild' ),
+                'title'           => __('Customizer Only Option', 'nextbuild'),
+                'subtitle'        => __('The subtitle is NOT visible in customizer', 'nextbuild'),
+                'desc'            => __('The field desc is NOT visible in customizer.', 'nextbuild'),
                 'customizer_only' => true,
                 //Must provide key => value pairs for select options
                 'options'         => array(
@@ -481,23 +479,23 @@
                 'default'         => '2'
             ),
         )
-    ) );
+    ));
 
-    if ( file_exists( dirname( __FILE__ ) . '/../README.md' ) ) {
+    if (file_exists(dirname(__FILE__) . '/../README.md')) {
         $section = array(
             'icon'   => 'el el-list-alt',
-            'title'  => __( 'Documentation', 'nextbuild' ),
+            'title'  => __('Documentation', 'nextbuild'),
             'fields' => array(
                 array(
                     'id'       => '17',
                     'type'     => 'raw',
                     'markdown' => true,
-                    'content_path' => dirname( __FILE__ ) . '/../README.md', // FULL PATH, not relative please
+                    'content_path' => dirname(__FILE__) . '/../README.md', // FULL PATH, not relative please
                     //'content' => 'Raw content here',
                 ),
             ),
         );
-        Redux::setSection( $opt_name, $section );
+        Redux::setSection($opt_name, $section);
     }
     /*
      * <--- END SECTIONS
@@ -536,11 +534,12 @@
      * This is a test function that will let you see when the compiler hook occurs.
      * It only runs if a field    set with compiler=>true is changed.
      * */
-    if ( ! function_exists( 'compiler_action' ) ) {
-        function compiler_action( $options, $css, $changed_values ) {
+    if (! function_exists('compiler_action')) {
+        function compiler_action($options, $css, $changed_values)
+        {
             echo '<h1>The compiler hook has run!</h1>';
             echo "<pre>";
-            print_r( $changed_values ); // Values that have changed since the last save
+            print_r($changed_values); // Values that have changed since the last save
             echo "</pre>";
             //print_r($options); //Option values
             //print_r($css); // Compiler selector CSS values  compiler => array( CSS SELECTORS )
@@ -550,28 +549,29 @@
     /**
      * Custom function for the callback validation referenced above
      * */
-    if ( ! function_exists( 'redux_validate_callback_function' ) ) {
-        function redux_validate_callback_function( $field, $value, $existing_value ) {
+    if (! function_exists('redux_validate_callback_function')) {
+        function redux_validate_callback_function($field, $value, $existing_value)
+        {
             $error   = false;
             $warning = false;
 
             //do your validation
-            if ( $value == 1 ) {
+            if ($value == 1) {
                 $error = true;
                 $value = $existing_value;
-            } elseif ( $value == 2 ) {
+            } elseif ($value == 2) {
                 $warning = true;
                 $value   = $existing_value;
             }
 
             $return['value'] = $value;
 
-            if ( $error == true ) {
+            if ($error == true) {
                 $field['msg']    = 'your custom error message';
                 $return['error'] = $field;
             }
 
-            if ( $warning == true ) {
+            if ($warning == true) {
                 $field['msg']      = 'your custom warning message';
                 $return['warning'] = $field;
             }
@@ -583,11 +583,12 @@
     /**
      * Custom function for the callback referenced above
      */
-    if ( ! function_exists( 'redux_my_custom_field' ) ) {
-        function redux_my_custom_field( $field, $value ) {
-            print_r( $field );
+    if (! function_exists('redux_my_custom_field')) {
+        function redux_my_custom_field($field, $value)
+        {
+            print_r($field);
             echo '<br/>';
-            print_r( $value );
+            print_r($value);
         }
     }
 
@@ -597,12 +598,13 @@
      * NOTE: the defined constants for URLs, and directories will NOT be available at this point in a child theme,
      * so you must use get_template_directory_uri() if you want to use any of the built in icons
      * */
-    if ( ! function_exists( 'dynamic_section' ) ) {
-        function dynamic_section( $sections ) {
+    if (! function_exists('dynamic_section')) {
+        function dynamic_section($sections)
+        {
             //$sections = array();
             $sections[] = array(
-                'title'  => __( 'Section via hook', 'nextbuild' ),
-                'desc'   => __( '<p class="description">This is a section created by adding a filter to the sections array. Can be used by child themes to add/remove sections from the options.</p>', 'nextbuild' ),
+                'title'  => __('Section via hook', 'nextbuild'),
+                'desc'   => __('This is a section created by adding a filter to the sections array. Can be used by child themes to add/remove sections from the options.', 'nextbuild'),
                 'icon'   => 'el el-paper-clip',
                 // Leave this as a blank section, no options just some intro text set above.
                 'fields' => array()
@@ -613,10 +615,12 @@
     }
 
     /**
-     * Filter hook for filtering the args. Good for child themes to override or add to the args array. Can also be used in other functions.
-     * */
-    if ( ! function_exists( 'change_arguments' ) ) {
-        function change_arguments( $args ) {
+     * Filter hook for filtering the args. Good for child themes to override or add to the args array.
+     *Can also be used in other functions.
+     **/
+    if (! function_exists('change_arguments')) {
+        function change_arguments($args)
+        {
             //$args['dev_mode'] = true;
 
             return $args;
@@ -626,8 +630,9 @@
     /**
      * Filter hook for filtering the default value of any given field. Very useful in development mode.
      * */
-    if ( ! function_exists( 'change_defaults' ) ) {
-        function change_defaults( $defaults ) {
+    if (! function_exists('change_defaults')) {
+        function change_defaults($defaults)
+        {
             $defaults['str_replace'] = 'Testing filter hook!';
 
             return $defaults;
@@ -637,18 +642,18 @@
     /**
      * Removes the demo link and the notice of integrated demo from the redux-framework plugin
      */
-    if ( ! function_exists( 'remove_demo' ) ) {
-        function remove_demo() {
+    if (! function_exists('remove_demo')) {
+        function remove_demo()
+        {
             // Used to hide the demo mode link from the plugin page. Only used when Redux is a plugin.
-            if ( class_exists( 'ReduxFrameworkPlugin' ) ) {
-                remove_filter( 'plugin_row_meta', array(
+            if (class_exists('ReduxFrameworkPlugin')) {
+                remove_filter('plugin_row_meta', array(
                     ReduxFrameworkPlugin::instance(),
                     'plugin_metalinks'
-                ), null, 2 );
+                ), null, 2);
 
                 // Used to hide the activation notice informing users of the demo panel. Only used when Redux is a plugin.
-                remove_action( 'admin_notices', array( ReduxFrameworkPlugin::instance(), 'admin_notices' ) );
+                remove_action('admin_notices', array( ReduxFrameworkPlugin::instance(), 'admin_notices' ));
             }
         }
     }
-
